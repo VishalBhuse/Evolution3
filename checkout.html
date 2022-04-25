@@ -12,6 +12,14 @@
         text-align: center;
         font-size: 20px;
       }
+      #user-detail{
+        text-align: center;
+        width: 90%;
+        margin: auto;
+      }
+      #wallet{
+        float: right;
+      }
     </style>
   </head>
   <body>
@@ -22,9 +30,9 @@
       <!-- Display the wallet amount here inside h1 tag with id as "wallet". Note only amount, no extra text. Like 500 not Rs 500 -->
     </div>
     <div id="user-detail">
-      <input type="text" name="" id="user_name">
-      <input type="number" name="" id="number_of_seats">
-      <button id="confirm">Confirm</button>
+      <input type="text" name="" id="user_name"><br><br>
+      <input type="number" name="" id="number_of_seats"><br><br>
+      <button id="confirm">Confirm</button><br>
       <!-- input field to accept user name with id as "user_name"  -->
       <!-- input field to accept number of seats with id as "number_of_seats"  -->
       <!-- A submit button to confirm booking with id as "confirm"  -->
@@ -37,58 +45,4 @@
     </div>
   </body>
 </html>
-
-<script>
-  var amoutarr = [0];
-    let arr2= JSON.parse(localStorage.getItem("amount")) || amoutarr;
-     let shows = document.querySelector("#wallet").innerHTML = arr2 ;
-    //  console.log('shows:', shows)
-
-
-function reads(id)
-{
-  return document.getElementById(id).value;
-}
-
-document.querySelector("#confirm").addEventListener("click", cheks);
-
-function cheks(){
-
-  let username = reads('user_name');
-  console.log('username:', username)
-  
-  let seatno = reads('number_of_seats')*100;
-  console.log('seatno:', seatno);
-
-  // let sum = arr2-Number(seatno)
-  // console.log('sum:', sum)
-
-  if(arr2-seatno){
-    alert('Booking successful!');
-  }
-  else{
-    alert('Insufficient Balance!');    
-  }
-  
-  console.log(arr2)
-}
-
-
-
-const moviearray = JSON.parse(localStorage.getItem("movie")) || [];
-
-moviearray.forEach(function(el)
-{
-  let div =document.createElement("div");
-  let p = document.createElement('p');
-  p.innerText = el.Title;
-  let imgs  = document.createElement("img");
-      imgs.src = el.Poster;
-
-      div.append(p,imgs)
-
-      document.querySelector("#movie").append(div)
-
-})
-
-</script>
+<script src="./scripts/checkout.js"></script>
